@@ -7,5 +7,7 @@ import com.example.demo.domain.model.UserModel;
 
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Long> {
-    
+    boolean existsByAccountNumber(String number);
+
+    boolean existsByCardNumber(String number);
 }
