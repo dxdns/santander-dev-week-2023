@@ -27,6 +27,11 @@ public class UserServiceImpl implements UserService {
         if(userRepository.existsByAccountNumber(user.getAccount().getNumber())) {
             throw new ConflictException("account number already exists");
         }
+
+        if (userRepository.existsByCardNumber(user.getCard().getNumber())) {
+            throw new ConflictException("card number already exists");
+        }
+
         return userRepository.save(user);
     }
 
